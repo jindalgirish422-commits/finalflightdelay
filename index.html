@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Flight Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>✈️ AI Flight Predictor</h1>
+            <p>Powered by Machine Learning</p>
+        </div>
+
+        <form action="/predict" method="POST">
+            
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Airline Code</label>
+                    <input type="text" name="airline" value="AA" placeholder="e.g. DL, AA" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Flight Date</label>
+                    <input type="date" name="flight_date" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Origin Airport</label>
+                    <input type="text" name="origin" value="ATL" placeholder="e.g. ATL" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Destination Airport</label>
+                    <input type="text" name="dest" value="LAX" placeholder="e.g. LAX" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Departure Hour</label>
+                    <select name="dep_hour" required>
+                        <option value="6">06:00 AM (Early Morning)</option>
+                        <option value="9">09:00 AM (Morning)</option>
+                        <option value="12">12:00 PM (Noon)</option>
+                        <option value="15">03:00 PM (Afternoon)</option>
+                        <option value="18" selected>06:00 PM (Evening Rush)</option>
+                        <option value="21">09:00 PM (Night)</option>
+                        <option value="23">11:00 PM (Late Night)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Origin Weather</label>
+                    <select name="weather" required>
+                        <option value="Clear">☀️ Clear Skies</option>
+                        <option value="Cloudy">☁️ Overcast</option>
+                        <option value="Rain">🌧️ Heavy Rain</option>
+                        <option value="Snow">❄️ Snowstorm</option>
+                        <option value="Thunderstorm">⛈️ Thunderstorm</option>
+                    </select>
+                </div>
+
+                <button type="submit">Analyze Flight Route</button>
+            </div>
+        </form>
+
+        {% if prediction %}
+            <div class="result-box {% if 'DELAYED' in prediction %}delayed{% endif %}">
+                <h2>{{ prediction }}</h2>
+                {% if severity %}
+                    <h3>{{ severity }}</h3>
+                {% endif %}
+                <span class="distance-tag">📍 {{ calc_dist }}</span>
+            </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

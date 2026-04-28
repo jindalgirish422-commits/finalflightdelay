@@ -1,0 +1,166 @@
+/* Import a clean, modern Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    /* Sleek, deep aviation-themed gradient background */
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-weight: 700;
+    color: #1a2a3a;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #666;
+    font-size: 15px;
+}
+
+/* Professional 2-Column Grid for the form */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group input, 
+.input-group select {
+    padding: 12px 15px;
+    font-size: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+    outline: none;
+    color: #1a2a3a;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    border-color: #3182ce;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+}
+
+/* Make the button pop */
+button {
+    grid-column: span 2;
+    background: linear-gradient(to right, #3182ce, #2b6cb0);
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(49, 130, 206, 0.3);
+}
+
+/* Sleek Result Box */
+.result-box {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.result-box.delayed {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+.result-box h2 {
+    font-size: 20px;
+    color: #166534;
+    margin-bottom: 5px;
+}
+
+.result-box.delayed h2 {
+    color: #991b1b;
+}
+
+.result-box h3 {
+    font-size: 16px;
+    color: #b91c1c;
+    font-weight: 600;
+}
+
+.distance-tag {
+    display: inline-block;
+    margin-top: 15px;
+    background: #e2e8f0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #475569;
+    font-weight: 600;
+}
+
+/* Animation for the result appearing */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 500px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Stack into 1 column on small phones */
+    }
+    button {
+        grid-column: span 1;
+    }
+}
